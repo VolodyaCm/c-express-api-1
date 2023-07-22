@@ -1,6 +1,15 @@
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
 
 const { JWT_SECRET } = process.env;
+
+export const comparePassword = (password, hash) => {
+  return bcrypt.compare(password, hash);
+}
+
+export const hashPassowrd = (password) => {
+  return bcrypt.hash(password, 10);
+}
 
 export const createJWT = (user) => {
   return jwt.sign(
