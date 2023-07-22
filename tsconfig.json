@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "sourceMap": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@": ["./*"],
+      "@/src/*": ["./src/*"],
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}
