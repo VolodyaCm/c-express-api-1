@@ -10,7 +10,7 @@ services:
     depends_on:
       - db
     environment:
-      - DATABASE_URL=postgres://postgres:mysecretpassword@db:5432/postgres
+      - DATABASE_URL=postgres://postgres:mysecretpassword@localhost:5432/app
 
   db:
     image: postgres:15-alpine
@@ -19,6 +19,8 @@ services:
       POSTGRES_PASSWORD: mysecretpassword
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
 
 volumes:
   postgres_data:
