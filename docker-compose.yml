@@ -11,6 +11,7 @@ services:
       - db
     environment:
       - DATABASE_URL=postgres://postgres:mysecretpassword@localhost:5432/app
+      - PORT=3001
 
   db:
     image: postgres:15-alpine
