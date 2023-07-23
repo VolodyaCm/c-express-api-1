@@ -22,4 +22,9 @@ app.use('/api', authorize, router);
 app.post('/user', createUser);
 app.post('/signin', signin);
 
+app.use((err, req, res, next) => {
+  res.status(500);
+  res.json({ message: 'Error' });
+});
+
 export default app;
