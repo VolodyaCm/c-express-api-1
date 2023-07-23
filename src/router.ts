@@ -1,6 +1,7 @@
 import { handleValidations } from '@/modules/middleware';
 import { Router } from 'express';
 import { body } from "express-validator";
+import { createProduct, updateProduct, getOneProduct, getProducts, deleteProduct } from '@/handlers/product';
 
 
 const router = Router();
@@ -9,31 +10,20 @@ const router = Router();
  * Product
  */
 
-router.get('/product', (req, res) => {
-  res.json({ messge: "fish" })
-});
+router.get('/product', getProducts);
 
-router.get('/product/:id', (req, res) => {
-
-});
+router.get('/product/:id', getOneProduct);
 
 router.put('/product/:id',
   body('name').isString(),
   handleValidations,
-  (req, res) => {
-
-  }
+  updateProduct,
 );
 
 
-router.post('/product', handleValidations, (req, res) => {
+router.post('/product', handleValidations, createProduct);
 
-});
-
-
-router.post('/product/:id', handleValidations, (req, res) => {
-
-});
+router.delete('/product/:id', handleValidations, deleteProduct);
 
 
 /**
