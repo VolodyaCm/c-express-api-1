@@ -1,4 +1,7 @@
+import { handleValidations } from '@/modules/middleware';
 import { Router } from 'express';
+import { body } from "express-validator";
+
 
 const router = Router();
 
@@ -14,17 +17,21 @@ router.get('/product/:id', (req, res) => {
 
 });
 
-router.put('/product/:id', (req, res) => {
+router.put('/product/:id',
+  body('name').isString(),
+  handleValidations,
+  (req, res) => {
+
+  }
+);
+
+
+router.post('/product', handleValidations, (req, res) => {
 
 });
 
 
-router.post('/product', (req, res) => {
-
-});
-
-
-router.post('/product/:id', (req, res) => {
+router.post('/product/:id', handleValidations, (req, res) => {
 
 });
 
@@ -41,17 +48,17 @@ router.get('/update/:id', (req, res) => {
 
 });
 
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', handleValidations, (req, res) => {
 
 });
 
 
-router.post('/update', (req, res) => {
+router.post('/update', handleValidations, (req, res) => {
 
 });
 
 
-router.post('/update/:id', (req, res) => {
+router.post('/update/:id', handleValidations, (req, res) => {
 
 });
 
@@ -67,12 +74,12 @@ router.get('/update-point/:id', (req, res) => {
 
 });
 
-router.put('/update-point/:id', (req, res) => {
+router.put('/update-point/:id', handleValidations, (req, res) => {
 
 });
 
 
-router.post('/update-point', (req, res) => {
+router.post('/update-point', handleValidations, (req, res) => {
 
 });
 
